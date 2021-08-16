@@ -197,7 +197,7 @@ const Dashboard = ({navigation}) => {
             </TouchableOpacity>
           </View>
           <ScrollView horizontal pagingEnabled>
-            <Promo sourceimage={promo1} />
+            <Promo sourceimage={promo1} />  
             <Promo sourceimage={promo2} />
             <Promo sourceimage={promo3} />
           </ScrollView>

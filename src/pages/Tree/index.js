@@ -6,7 +6,6 @@ import { Header2 } from '../../component';
 import { avatartree,avatartreepasif,avatar,circleup,circleright,circledown} from '../../assets';
 
 
-
 const Type = (props) =>{
     return(
         <View style={{flexDirection:'row'}}>
@@ -18,16 +17,13 @@ const Type = (props) =>{
 
 const ExpandRight =()=>{
     return(
-        <View style={{flexDirection:'row', height:500}}>
+        <View style={{flexDirection:'row', height:310}}>
             <View style={{justifyContent:'center'}}>
                 <LineHorizontal/>
             </View>
             <View style={{justifyContent:'center'}}>
                 <View style={styles.boxExpand}>
-                    <View style={{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
-                        <Image source={circleright} style={{width:20, height:20, marginRight:5}}/>
-                        <Text style={styles.textExpand}>Expand</Text>
-                    </View>
+                    <Image source={circleright} style={{width:20, height:20}}/>
                 </View>
             </View>
         </View>
@@ -36,17 +32,13 @@ const ExpandRight =()=>{
 const ExpandDown =()=>{
     return(
         <View style={styles.boxExpand}>
-            <View style={{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
-                <Image source={circledown} style={{width:20, height:20, marginRight:5}}/>
-                <Text style={styles.textExpand}>Expand</Text>
-            </View>
+            <Image source={circledown} style={{width:20, height:20}}/>
        </View>
     )
 }
 const LineVertical =()=>{
     return(
-        <View style={{backgroundColor:'#696969',height : 140, width:1}}>
-
+        <View style={{backgroundColor:'#696969',height : 70, width:1}}>
         </View>
     )
 }
@@ -61,20 +53,11 @@ const LineHorizontal =()=>{
 const BoxDataLeft =()=>{
     return(
         <View>
-            <View style={{width:220,alignItems:'center',}}>
-                <View style={styles.boxExpand}>
-                 <View style={{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
-                        <Image source={circleup} style={{width:20, height:20, marginRight:5}}/>
-                        <Text style={styles.textExpand}>Expand</Text>
-                    </View>
-                </View>
-                <View style={{width:220, height:100, alignItems:'center'}}>
-                    <LineVertical/>
-                </View>
+            <View style={{width:220,alignItems:'center'}}>
             </View>
             <View style={{flexDirection:'row'}}>
                 <View style={styles.boxData}>
-                <View style={{alignItems:'center', bottom:190, position:'absolute'}}>
+                <View style={{alignItems:'center'}}>
                     <Image source={avatar} style={{width:80, height:80}}/>
                 </View>
                 <View style={[styles.boxText,{justifyContent:'space-between'}]}>
@@ -156,12 +139,9 @@ const BoxDataLeft =()=>{
 const BoxDataMid =(props)=>{
     return(
         <View style={{alignItems:'center'}}>
-             <View style={{alignItems:'center'}}>
-                <View style={{backgroundColor:props.LineVertical? props.LineVertical:'#696969',height : 140, width:1}}>
-                </View>
-            </View>
+           
             <View style={styles.boxData}>
-            <View style={{alignItems:'center', bottom:190, position:'absolute'}}>
+            <View style={{alignItems:'center'}}>
                 <Image source={avatar} style={{width:80, height:80}}/>
             </View>
                 <View style={[styles.boxText,{justifyContent:'space-between'}]}>
@@ -293,36 +273,41 @@ const Tree = () => {
                             </View>
                         </View>
                     </View>
-                    <ScrollView>
-                        <View style={{alignItems:'center', marginHorizontal:20}}>
-                            <ScrollView horizontal pagingEnabled style={{paddingVertical:20}}>
-                                <View style={{flexDirection:'column', alignItems:'center'}}>
-
-                                    <View style={{paddingHorizontal:20, flexDirection:'row',height:'auto'}}>
-                                        <View style={{width:270, height:230, flexDirection:'row',justifyContent:'center'}}>
+                    <ScrollView >
+                        <View style={{alignItems:'center', paddingHorizontal:20, paddingVertical:20}}>
+                            <ScrollView horizontal>
+                                <View style={{flexDirection:'column',  justifyContent:'center'}}>
+                                    <View style={{flexDirection:'column', alignItems:'center', width:220,}}>
+                                        <View style={styles.boxExpand}>
+                                            <Image source={circleup} style={{width:20, height:20}}/>
+                                        </View>
+                                        <LineVertical/>
+                                    </View>
+                                    <View style={{flexDirection:'row',height:'auto', justifyContent:'center'}}>
                                             <BoxDataLeft/>
-                                        </View>
-                                        <BoxDataMid LineVertical='#F4F4F4'/>
-                                        <ExpandRight/>
+                                            <BoxDataMid/>
+                                            <ExpandRight/>
                                     </View>
 
-                                    <View style={{paddingHorizontal:20, flexDirection:'row',height:'auto'}}>
-                                        <View style={{width:270, height:230, flexDirection:'row',justifyContent:'center'}}>
-                                            <BoxDataLeft/>
+                                    <View style={{flexDirection:'row',height:'auto',justifyContent:'center'}}>
+                                        <View style={{width:290, height:230, flexDirection:'row',justifyContent:'center'}}>
                                         </View>
-                                        <BoxDataMid/>
-                                        <ExpandRight/>
+                                            <BoxDataMid/>
+                                            <ExpandRight/>
                                     </View>
 
-                                    <View style={{paddingHorizontal:20, flexDirection:'row',height:'auto'}}>
-                                        <View style={{width:270, height:230, flexDirection:'row',justifyContent:'center'}}>
+                                    <View style={{flexDirection:'row',height:'auto',justifyContent:'center'}}>
+                                        <View style={{width:290, height:230, flexDirection:'row',justifyContent:'center'}}>
                                         </View>
-                                        <BoxDataMid end={<ExpandDown/>}/>
-                                        <ExpandRight/>
+                                            <BoxDataMid end={<ExpandDown/>}/>
+                                            <ExpandRight/>
                                     </View>
-    
+
+                                    {/* <View style={{alignItems:'center', left:85}}>
+                                            <ExpandDown/>
+                                    </View> */}
                                 </View>
-                                
+                              
                             </ScrollView>
                         </View>
                     </ScrollView>
@@ -334,7 +319,7 @@ const Tree = () => {
 const styles = StyleSheet.create({
 container : {
     flex :1,
-    backgroundColor : '#f4f4f4'
+    backgroundColor : '#f4f4f4',
   },
   box:{
     backgroundColor:"white",
@@ -346,12 +331,12 @@ container : {
   boxData:{
     elevation:5,
     padding:20,
-    paddingTop:30,
+    paddingTop:10,
     width:220,
     backgroundColor:'#FFFFFF',
     // borderWidth:1,
     // borderColor:'blue',
-    height:'auto',
+    height:310,
     alignItems:'center',
     justifyContent:'center'
   },
@@ -359,7 +344,7 @@ container : {
     elevation:5,
     padding:20,
     height:30,
-    width:150,
+    width:50,
     backgroundColor:'#FFFFFF',
     alignItems:'center',
     justifyContent:'center'
